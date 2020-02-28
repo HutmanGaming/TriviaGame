@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script src="jquery-3.4.1.min.js"></script>
+    <script defer src="assets/javascript/app.js"></script>
+    <title>Trivia Game</title>
+</head>
+<body>
+    <div class="headcontainer">
+    <text>Score:</text>    <span id="right-answers">0</span> <br>
+    <text>Time: <text id="time">0</text></text>
+    </div>
+    <div class="container">
+        
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+        </div>
+        <br>
+        <div class="controls">
+            <button onclick="clock(); document.getElementById('demo').innerHTML='5';" id="start-btn" class="start-btn btn" >Start New Quiz</button>
+            <button id="next-btn" class="next-btn btn hide" >Next</button>
+        </div>
+    </div>
+    
+</body>
+</html>

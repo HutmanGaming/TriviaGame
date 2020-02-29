@@ -28,7 +28,9 @@ function startGame() {
 
   countRightAnswers = 0;
 
-  counter = 20
+  counter = 30
+
+  ranoutoftime.classList.add('hide')
 
   questionElement.classList.remove('hide')
 
@@ -91,6 +93,12 @@ function resetState() {
 
   clearStatusClass(document.body)
 
+  Incorrectmessage.classList.add('hide')
+
+  completedtest.classList.add('hide')
+
+  Correctmessage.classList.add('hide')
+
   nextButton.classList.add('hide')
 
   while (answerButtonsElement.firstChild) {
@@ -100,8 +108,6 @@ function resetState() {
   }
 
 }
-
-let correctscore = 0;
 
 function selectAnswer(e) {
 
@@ -121,23 +127,37 @@ function selectAnswer(e) {
 
     nextButton.classList.remove('hide')
 
+
   } else {
 
-    startButton.innerText = 'Start New GameS'
+    startButton.innerText = 'Start New Quiz'
 
     startButton.classList.remove('hide')
+
+    completedtest.classList.remove('hide')
 
     clearInterval(myTimer);
 
   }
   if (selectedButton.dataset = correct) {
-
+    Correctmessage.classList.remove('hide')
     countRightAnswers++;
+ }
+ else {
+    Incorrectmessage.classList.remove('hide')
  }
  document.getElementById('right-answers').innerHTML = countRightAnswers
 }
 
 let countRightAnswers = 0
+
+var Correctmessage = document.getElementById("success")
+
+var Incorrectmessage = document.getElementById("fail")
+
+var ranoutoftime = document.getElementById("ranoutoftime")
+
+var completedtest = document.getElementById("completedtest")
 
 function setStatusClass(element, correct) {
 
@@ -151,6 +171,7 @@ function setStatusClass(element, correct) {
 
     element.classList.add('wrong')
 
+
   }
 
 }
@@ -160,7 +181,7 @@ function setStatusClass(element, correct) {
 var myTimer;
    function clock() {
      myTimer = setInterval(myClock, 1000);
-     var c = 20;
+     var c = 30;
 
      function myClock() {
        document.getElementById("time").innerHTML = --c;
@@ -169,6 +190,9 @@ var myTimer;
         answerButtonsElement.classList.add('hide')
         nextButton.classList.add('hide')
         startButton.classList.remove('hide')
+        Incorrectmessage.classList.add('hide')
+        Correctmessage.classList.add('hide')
+        ranoutoftime.classList.remove('hide')
          clearInterval(myTimer);
        }
      }
@@ -188,13 +212,17 @@ const questions = [
 
   {
 
-    question: 'What is 2 + 2?',
+    question: 'What is my middle name?',
 
     answers: [
 
-      { text: '4', correct: true },
+      { text: 'Jacob', correct: false },
 
-      { text: '22', correct: false }
+      { text: 'David', correct: false },
+
+      { text: 'Nicholas', correct: true },
+
+      { text: 'Aaron', correct: false }
 
     ]
 
@@ -202,17 +230,17 @@ const questions = [
 
   {
 
-    question: 'Who is the best YouTuber?',
+    question: 'How old am I?',
 
     answers: [
 
-      { text: 'Web Dev Simplified', correct: true },
+      { text: '21', correct: false },
 
-      { text: 'Traversy Media', correct: true },
+      { text: '22', correct: false },
 
-      { text: 'Dev Ed', correct: true },
+      { text: '20', correct: true },
 
-      { text: 'Fun Fun Function', correct: true }
+      { text: '23', correct: false }
 
     ]
 
@@ -220,17 +248,51 @@ const questions = [
 
   {
 
-    question: 'Is web development fun?',
+  question: 'Where have I previously been employed at?',
+
+  answers: [
+
+    { text: 'Walmart', correct: true },
+
+    { text: 'Rite Aid', correct: true },
+
+    { text: 'Walgreens', correct: false },
+
+    { text: 'Wendys', correct: true }
+
+  ]
+
+},    
+    {
+    question: 'Why am I learning coding?',
 
     answers: [
 
-      { text: 'Kinda', correct: false },
+  { text: 'Hobby', correct: true },
 
-      { text: 'YES!!!', correct: true },
+  { text: 'Future Career', correct: true },
 
-      { text: 'Um no', correct: false },
+  { text: 'To Waste Time', correct: true },
 
-      { text: 'IDK', correct: false }
+  { text: 'Forced To', correct: false }
+
+]
+
+},
+
+{
+
+    question: 'What is my highest education?',
+
+    answers: [
+
+      { text: 'Associates', correct: false },
+
+      { text: 'Highschool Diploma', correct: false },
+
+      { text: 'GED', correct: true },
+
+      { text: 'Bachelors', correct: false }
 
     ]
 
@@ -238,13 +300,35 @@ const questions = [
 
   {
 
-    question: 'What is 4 * 2?',
+    question: 'What is my dream job?',
 
     answers: [
 
-      { text: '6', correct: false },
+      { text: 'Entrepeneur', correct: true },
 
-      { text: '8', correct: true }
+      { text: 'Full Stack Web Developer', correct: false },
+
+      { text: 'Accounting', correct: false },
+
+      { text: 'Project Manager', correct: false }
+
+    ]
+
+  },
+
+  {
+
+    question: 'Who is my best friend?',
+
+    answers: [
+
+      { text: 'Brenden Wilson', correct: true },
+
+      { text: 'Ryan Burr', correct: false },
+
+      { text: 'Tristden Zug', correct: false },
+
+      { text: 'Marcos Alvarado', correct: false }
 
     ]
 

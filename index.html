@@ -7,16 +7,22 @@
     <script src="jquery-3.4.1.min.js"></script>
     <script defer src="assets/javascript/app.js"></script>
     <title>Trivia Game</title>
+    
 </head>
 <body>
+    <div class="titlecontainer">
+        <h1>Brandon Wallin Trivia Game</h1>
+        <p>How well do you know me?</p>
+    </div>
     <div class="headcontainer">
-    <text>Score:</text>    <span id="right-answers">0</span> <br>
+    <text>Score:</text>    <span id="right-answers">0</span><text>/7</text> <br>
     <text>Time: <text id="time">0</text></text>
     </div>
     <div class="container">
         
         <div id="question-container" class="hide">
             <div id="question">Question</div>
+            <br>
             <div id="answer-buttons" class="btn-grid">
                 <button class="btn">Answer 1</button>
                 <button class="btn">Answer 2</button>
@@ -24,7 +30,10 @@
                 <button class="btn">Answer 4</button>
             </div>
         </div>
-        <br>
+        <p id="success" class="hide">Correct!</p>
+        <p id="fail" class="hide">Incorrect.</p>
+        <p id="ranoutoftime" class="hide">You Ran Out Of Time. Click The Button Below To Try Again!</p>
+        <p id="completedtest" class="hide">Congrats you completed the test! Check your score on your left. Click the button below to play again!</p>
         <div class="controls">
             <button onclick="clock(); document.getElementById('demo').innerHTML='5';" id="start-btn" class="start-btn btn" >Start New Quiz</button>
             <button id="next-btn" class="next-btn btn hide" >Next</button>
